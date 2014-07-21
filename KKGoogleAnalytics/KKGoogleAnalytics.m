@@ -29,10 +29,22 @@ NS_INLINE NSString *KKEscape(NSString *inValue)
 }
 @end
 
+static NSString *GenerateUUIDString()
+{
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    CFStringRef uuidStr = CFUUIDCreateString(NULL, uuid);
+    CFRelease(uuid);
+    return CFBridgingRelease(uuidStr);
+}
 
 static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDomain";
 
 @interface KKGoogleAnalytics()
+@property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) NSString *clientID;
+@property (strong, nonatomic) NSString *screenResolution;
+@property (strong, nonatomic) NSString *screenDepth;
+@property (strong, nonatomic) NSString *language;
 @property (strong, nonatomic) NSOperationQueue *operationQueue;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -61,17 +73,63 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	self = [super init];
 	if (self) {
 		self.operationQueue = [[NSOperationQueue alloc] init];
+		self.operationQueue.maxConcurrentOperationCount = 1;
+		NSString *existingClientID = [[NSUserDefaults standardUserDefaults] stringForKey:@"GoogleAnalyticsClientID"];
+		if (!existingClientID) {
+			existingClientID = GenerateUUIDString();
+			[[NSUserDefaults standardUserDefaults] setObject:existingClientID forKey:@"GoogleAnalyticsClientID"];
+		}
+		NSArray *languages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+		self.language = languages[0];
+		self.clientID = existingClientID;
+		NSScreen *screen = [NSScreen mainScreen];
+		self.screenResolution = [NSString stringWithFormat:@"%ldx%ld", (long)screen.frame.size.width, (long)screen.frame.size.height];
+
+		switch (screen.depth) {
+			case NSWindowDepthTwentyfourBitRGB:
+				self.screenDepth = @"24-bits";
+				break;
+			case NSWindowDepthSixtyfourBitRGB:
+				self.screenDepth = @"64-bits";
+				break;
+			case NSWindowDepthOnehundredtwentyeightBitRGB:
+				self.screenDepth = @"128-bits";
+				break;
+			default:
+				self.screenDepth = nil;
+				break;
+		}
+		[self _sendPayloads];
+		[self _scheduleTimer];
 	}
 	return self;
 }
 
+- (void)timer:(NSTimer *)timer
+{
+	[self _sendPayloads];
+}
+
+- (void)_scheduleTimer
+{
+	if (self.timer) {
+		[self.timer invalidate];
+		self.timer = nil;
+	}
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(timer:) userInfo:nil repeats:YES];
+}
+
 - (void)_sendPayloads
 {
+	if ([self.operationQueue operationCount]) {
+		return;
+	}
+
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Record" inManagedObjectContext:self.managedObjectContext];
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescription];
 	NSError *error;
-	NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
+	__block NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
 	if (![array count]) {
 		return;
 	}
@@ -86,11 +144,30 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	[HTTPRequest setHTTPBody:[s dataUsingEncoding:NSUTF8StringEncoding]];
 
 	[NSURLConnection sendAsynchronousRequest:HTTPRequest queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-
+		if (!connectionError) {
+			for (id object in array) {
+				[self.managedObjectContext deleteObject:object];
+			}
+			[self.managedObjectContext save:nil];
+		}
 	}];
-
-//	NSLog(@"%@", s);
 }
+
+- (void)startDispatching
+{
+	[self _scheduleTimer];
+}
+- (void)pauseDispatching
+{
+	if (self.timer) {
+		[self.timer invalidate];
+		self.timer = nil;
+	}
+}
+
+@end
+
+@implementation KKGoogleAnalytics (Tracking)
 
 - (void)_doAssertion
 {
@@ -100,11 +177,26 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	NSAssert([self.clientID length] > 0, @"Must have self.clientID");
 }
 
-- (void)_addRecord:(NSString *)record
+- (void)_addRecord:(NSMutableDictionary *)payload
 {
-	NSParameterAssert(record);
+	NSParameterAssert(payload);
+	payload[@"v"] = @1;
+	payload[@"tid"] = self.trackingID;
+	payload[@"cid"] = self.clientID;
+
+	if (self.userID) {
+		payload[@"uid"] = self.userID;
+	}
+	if (self.screenResolution) {
+		payload[@"sr"] = self.screenResolution;
+	}
+	if (self.screenDepth) {
+		payload[@"sd"] = self.screenDepth;
+	}
+
+	NSString *text = [NSString stringAsWWWURLEncodedFormFromDictionary:payload];
 	NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:@"Record" inManagedObjectContext:self.managedObjectContext];
-	[object setValue:record forKey:@"text"];
+	[object setValue:text forKey:@"text"];
 	[self.managedObjectContext insertObject:object];
 	[self.managedObjectContext save:nil];
 }
@@ -128,15 +220,45 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	[self _doAssertion];
 	NSParameterAssert(tag);
 
-	NSMutableDictionary *payload = [[NSMutableDictionary alloc] init];
-	payload[@"v"] = @1;
-	payload[@"tid"] = self.trackingID;
-	payload[@"cid"] = self.clientID;
+	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
 	payload[@"t"] = @"appview";
 	payload[@"an"] = self.appName;
 	payload[@"av"] = self.appVersion;
 	payload[@"cd"] = tag;
-	[self _addRecord:[NSString stringAsWWWURLEncodedFormFromDictionary:payload]];
+	[self _addRecord:payload];
+}
+
+- (void)trackPageViewWithName:(NSString *)name hostname:(NSString *)hostname page:(NSString *)page
+{
+	[self _doAssertion];
+	NSParameterAssert(name);
+	NSParameterAssert(hostname);
+	NSParameterAssert(page);
+
+	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
+	payload[@"t"] = @"pageview";
+	payload[@"dh"] = name;
+	payload[@"dp"] = page;
+	payload[@"dt"] = name;
+	[self _addRecord:payload];
+}
+
+- (void)trackEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value
+{
+	[self _doAssertion];
+	NSParameterAssert(category);
+	NSParameterAssert(action);
+	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
+	payload[@"t"] = @"event";
+	payload[@"ec"] = category;
+	payload[@"ea"] = action;
+	if (label) {
+		payload[@"el"] = label;
+	}
+	if (value) {
+		payload[@"ev"] = value;
+	}
+	[self _addRecord:payload];
 }
 
 - (void)trackTransaction:(NSString *)transactionID affliation:(NSString *)affliation revenue:(NSNumber *)revenue shipping:(NSNumber *)shipping tax:(NSNumber *)tax currencyCode:(NSString *)currencyCode
@@ -148,13 +270,8 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	NSParameterAssert(shipping);
 	NSParameterAssert(tax);
 
-	NSMutableDictionary *payload = [[NSMutableDictionary alloc] init];
-	payload[@"v"] = @1;
-	payload[@"tid"] = self.trackingID;
-	payload[@"cid"] = self.clientID;
+	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
 	payload[@"t"] = @"transaction";
-	payload[@"an"] = self.appName;
-	payload[@"av"] = self.appVersion;
 	payload[@"ti"] = transactionID;
 	payload[@"ta"] = affliation;
 	payload[@"tr"] = revenue;
@@ -163,7 +280,7 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	if (currencyCode) {
 		payload[@"cu"] = currencyCode;
 	}
-	[self _addRecord:[NSString stringAsWWWURLEncodedFormFromDictionary:payload]];
+	[self _addRecord:payload];
 }
 
 - (void)trackItem:(NSString *)transactionID name:(NSString *)name SKU:(NSString *)SKU cateogory:(NSString *)category price:(NSNumber *)price quantity:(NSNumber *)quantity currencyCode:(NSString *)currencyCode
@@ -176,13 +293,8 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	NSParameterAssert(price);
 	NSParameterAssert(quantity);
 
-	NSMutableDictionary *payload = [[NSMutableDictionary alloc] init];
-	payload[@"v"] = @1;
-	payload[@"tid"] = self.trackingID;
-	payload[@"cid"] = self.clientID;
+	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
 	payload[@"t"] = @"item";
-	payload[@"an"] = self.appName;
-	payload[@"av"] = self.appVersion;
 	payload[@"ti"] = transactionID;
 	payload[@"in"] = name;
 	payload[@"ip"] = price;
@@ -192,7 +304,22 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	if (currencyCode) {
 		payload[@"cu"] = currencyCode;
 	}
-	[self _addRecord:[NSString stringAsWWWURLEncodedFormFromDictionary:payload]];
+	[self _addRecord:payload];
+}
+
+- (void)trackSocialInteractionsWithAction:(NSString *)action socialNetworkName:(NSString *)name target:(NSString *)target
+{
+	[self _doAssertion];
+	NSParameterAssert(action);
+	NSParameterAssert(name);
+	NSParameterAssert(target);
+
+	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
+	payload[@"t"] = @"social";
+	payload[@"sa"] = action;
+	payload[@"sn"] = name;
+	payload[@"st"] = target;
+	[self _addRecord:payload];
 }
 
 @end
@@ -295,3 +422,4 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 }
 
 @end
+

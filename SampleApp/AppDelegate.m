@@ -12,9 +12,9 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	[KKGoogleAnalytics sharedInstance].trackingID = @"UA-144934-12";
-	[KKGoogleAnalytics sharedInstance].clientID = @"1234";
-	[[KKGoogleAnalytics sharedInstance] trackScreenView:@"Hi"];
-	[[KKGoogleAnalytics sharedInstance] _sendPayloads];
+//	[[KKGoogleAnalytics sharedInstance] trackScreenView:@"Hi"];
+//	[[KKGoogleAnalytics sharedInstance] trackScreenView:@"Test"];
+	[[KKGoogleAnalytics sharedInstance] trackScreenView:@"Test 2"];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
