@@ -78,6 +78,9 @@ NSString *const kKKGAIItem = @"item";
 NSString *const kKKGAIException = @"exception";
 NSString *const kKKGAITiming = @"timing";
 
+NSString *const kKKGAIExperimentID = @"xid";
+NSString *const kKKGAIExperimentVariant = @"xvar";
+
 @implementation KKGAFields
 
 + (NSString *)customDimensionForIndex:(NSUInteger)index

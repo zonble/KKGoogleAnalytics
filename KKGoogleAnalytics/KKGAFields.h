@@ -78,6 +78,9 @@ extern NSString *const kKKGAIItem;
 extern NSString *const kKKGAIException;
 extern NSString *const kKKGAITiming;
 
+extern NSString *const kKKGAIExperimentID;
+extern NSString *const kKKGAIExperimentVariant;
+
 @interface KKGAFields : NSObject
 + (NSString *)customDimensionForIndex:(NSUInteger)index;
 + (NSString *)customMetricForIndex:(NSUInteger)index;
