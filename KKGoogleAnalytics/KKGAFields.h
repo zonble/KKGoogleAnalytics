@@ -79,5 +79,6 @@ extern NSString *const kKKGAIException;
 extern NSString *const kKKGAITiming;
 
 @interface KKGAFields : NSObject
-
++ (NSString *)customDimensionForIndex:(NSUInteger)index;
++ (NSString *)customMetricForIndex:(NSUInteger)index;
 @end

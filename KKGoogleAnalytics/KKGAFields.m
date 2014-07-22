@@ -80,4 +80,13 @@ NSString *const kKKGAITiming = @"timing";
 
 @implementation KKGAFields
 
++ (NSString *)customDimensionForIndex:(NSUInteger)index
+{
+	return [NSString stringWithFormat:@"cd%lu", (unsigned long)index];
+}
++ (NSString *)customMetricForIndex:(NSUInteger)index
+{
+	return [NSString stringWithFormat:@"cm%lu", (unsigned long)index];
+}
+
 @end

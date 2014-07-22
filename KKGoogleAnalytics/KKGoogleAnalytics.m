@@ -1,4 +1,6 @@
 #import "KKGoogleAnalytics.h"
+#import "KKGAFields.h"
+#import "KKGASystemInfo.h"
 
 @interface NSString (HTTPFormExtensions)
 + (instancetype)stringAsWWWURLEncodedFormFromDictionary:(NSDictionary *)formDictionary;
@@ -144,6 +146,7 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	NSMutableURLRequest *HTTPRequest = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
 	[HTTPRequest setHTTPMethod:@"POST"];
 	[HTTPRequest setHTTPBody:[s dataUsingEncoding:NSUTF8StringEncoding]];
+	[HTTPRequest addValue:KKUserAgentString() forHTTPHeaderField:@"User-Agent"];
 
 	[NSURLConnection sendAsynchronousRequest:HTTPRequest queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 		if (!connectionError) {
@@ -178,17 +181,20 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	NSMutableDictionary *payload = [NSMutableDictionary dictionaryWithDictionary:params];
 	NSParameterAssert(payload);
 	payload[@"v"] = @1;
-	payload[@"tid"] = self.trackingID;
-	payload[@"cid"] = self.clientID;
+	payload[kKKGAITrackingId] = self.trackingID;
+	payload[kKKGAIClientId] = self.clientID;
 
 	if (self.userID) {
-		payload[@"uid"] = self.userID;
+		payload[kKKGAIUserId] = self.userID;
 	}
 	if (self.screenResolution) {
-		payload[@"sr"] = self.screenResolution;
+		payload[kKKGAIScreenResolution] = self.screenResolution;
 	}
 	if (self.screenDepth) {
-		payload[@"sd"] = self.screenDepth;
+		payload[kKKGAIScreenColors] = self.screenDepth;
+	}
+	if (self.language) {
+		payload[kKKGAILanguage] = self.language;
 	}
 
 	NSString *text = [NSString stringAsWWWURLEncodedFormFromDictionary:payload];
