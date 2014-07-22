@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "KKGoogleAnalytics.h"
+#import "KKGAI.h"
 
 @interface AppDelegate ()
 
@@ -12,9 +12,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	[KKGoogleAnalytics sharedInstance].trackingID = @"UA-144934-12";
-//	[[KKGoogleAnalytics sharedInstance] trackScreenView:@"Hi"];
-//	[[KKGoogleAnalytics sharedInstance] trackScreenView:@"Test"];
-	[[KKGoogleAnalytics sharedInstance] trackScreenView:@"Test 2"];
+	[[KKGoogleAnalytics sharedInstance] send:[[KKGADictionaryBuilder createScreenView:@"Hi"] build]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

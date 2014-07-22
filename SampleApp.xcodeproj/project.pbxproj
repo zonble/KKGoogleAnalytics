@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4D5D0AE197EB63200C961AA /* KKGADictionaryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D5D0AD197EB63100C961AA /* KKGADictionaryBuilder.m */; };
+		D4D5D0B1197EBA9900C961AA /* KKGAFields.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D5D0B0197EBA9900C961AA /* KKGAFields.m */; };
 		D4EABA74197D4C6D009B16F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EABA73197D4C6D009B16F2 /* main.m */; };
 		D4EABA77197D4C6D009B16F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EABA76197D4C6D009B16F2 /* AppDelegate.m */; };
 		D4EABA79197D4C6D009B16F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4EABA78197D4C6D009B16F2 /* Images.xcassets */; };
@@ -28,6 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4D5D0AC197EB63100C961AA /* KKGADictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGADictionaryBuilder.h; sourceTree = "<group>"; };
+		D4D5D0AD197EB63100C961AA /* KKGADictionaryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGADictionaryBuilder.m; sourceTree = "<group>"; };
+		D4D5D0AF197EBA9900C961AA /* KKGAFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGAFields.h; sourceTree = "<group>"; };
+		D4D5D0B0197EBA9900C961AA /* KKGAFields.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGAFields.m; sourceTree = "<group>"; };
+		D4D5D0B2197EC1CB00C961AA /* KKGAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKGAI.h; sourceTree = "<group>"; };
 		D4EABA6E197D4C6D009B16F2 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EABA72197D4C6D009B16F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4EABA73197D4C6D009B16F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,8 +129,13 @@
 			isa = PBXGroup;
 			children = (
 				D4EABAC8197D52A8009B16F2 /* GoogleAnalytics.xcdatamodeld */,
+				D4D5D0B2197EC1CB00C961AA /* KKGAI.h */,
 				D4EABA94197D4CCA009B16F2 /* KKGoogleAnalytics.h */,
 				D4EABA95197D4CCA009B16F2 /* KKGoogleAnalytics.m */,
+				D4D5D0AC197EB63100C961AA /* KKGADictionaryBuilder.h */,
+				D4D5D0AD197EB63100C961AA /* KKGADictionaryBuilder.m */,
+				D4D5D0AF197EBA9900C961AA /* KKGAFields.h */,
+				D4D5D0B0197EBA9900C961AA /* KKGAFields.m */,
 			);
 			path = KKGoogleAnalytics;
 			sourceTree = "<group>";
@@ -227,10 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D5D0B1197EBA9900C961AA /* KKGAFields.m in Sources */,
 				D4EABA77197D4C6D009B16F2 /* AppDelegate.m in Sources */,
 				D4EABACA197D52A8009B16F2 /* GoogleAnalytics.xcdatamodeld in Sources */,
 				D4EABA96197D4CCA009B16F2 /* KKGoogleAnalytics.m in Sources */,
 				D4EABA74197D4C6D009B16F2 /* main.m in Sources */,
+				D4D5D0AE197EB63200C961AA /* KKGADictionaryBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +432,7 @@
 				D4EABA8D197D4C6D009B16F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4EABA8E197D4C6D009B16F2 /* Build configuration list for PBXNativeTarget "SampleAppTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +441,7 @@
 				D4EABA90197D4C6D009B16F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

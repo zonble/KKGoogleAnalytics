@@ -55,6 +55,8 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 
 - (void)dealloc
 {
+	[self.timer invalidate];
+	self.timer = nil;
 	[self.operationQueue cancelAllOperations];
 }
 
@@ -157,6 +159,7 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 {
 	[self _scheduleTimer];
 }
+
 - (void)pauseDispatching
 {
 	if (self.timer) {
@@ -165,20 +168,14 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	}
 }
 
-@end
-
-@implementation KKGoogleAnalytics (Tracking)
-
-- (void)_doAssertion
+- (void)send:(NSDictionary *)params
 {
 	NSAssert(self.trackingID != nil, @"Must have self.trackingID");
 	NSAssert([self.trackingID length] > 0, @"Must have self.trackingID");
 	NSAssert(self.clientID != nil, @"Must have self.clientID");
 	NSAssert([self.clientID length] > 0, @"Must have self.clientID");
-}
 
-- (void)_addRecord:(NSMutableDictionary *)payload
-{
+	NSMutableDictionary *payload = [NSMutableDictionary dictionaryWithDictionary:params];
 	NSParameterAssert(payload);
 	payload[@"v"] = @1;
 	payload[@"tid"] = self.trackingID;
@@ -199,127 +196,6 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	[object setValue:text forKey:@"text"];
 	[self.managedObjectContext insertObject:object];
 	[self.managedObjectContext save:nil];
-}
-
-- (NSString *)appName
-{
-	NSString *name = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
-	if (!name) {
-		name = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
-	}
-	return name;
-}
-
-- (NSString *)appVersion
-{
-	return  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-}
-
-- (void)trackScreenView:(NSString *)tag
-{
-	[self _doAssertion];
-	NSParameterAssert(tag);
-
-	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
-	payload[@"t"] = @"appview";
-	payload[@"an"] = self.appName;
-	payload[@"av"] = self.appVersion;
-	payload[@"cd"] = tag;
-	[self _addRecord:payload];
-}
-
-- (void)trackPageViewWithName:(NSString *)name hostname:(NSString *)hostname page:(NSString *)page
-{
-	[self _doAssertion];
-	NSParameterAssert(name);
-	NSParameterAssert(hostname);
-	NSParameterAssert(page);
-
-	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
-	payload[@"t"] = @"pageview";
-	payload[@"dh"] = name;
-	payload[@"dp"] = page;
-	payload[@"dt"] = name;
-	[self _addRecord:payload];
-}
-
-- (void)trackEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value
-{
-	[self _doAssertion];
-	NSParameterAssert(category);
-	NSParameterAssert(action);
-	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
-	payload[@"t"] = @"event";
-	payload[@"ec"] = category;
-	payload[@"ea"] = action;
-	if (label) {
-		payload[@"el"] = label;
-	}
-	if (value) {
-		payload[@"ev"] = value;
-	}
-	[self _addRecord:payload];
-}
-
-- (void)trackTransaction:(NSString *)transactionID affliation:(NSString *)affliation revenue:(NSNumber *)revenue shipping:(NSNumber *)shipping tax:(NSNumber *)tax currencyCode:(NSString *)currencyCode
-{
-	[self _doAssertion];
-	NSParameterAssert(transactionID);
-	NSParameterAssert(affliation);
-	NSParameterAssert(revenue);
-	NSParameterAssert(shipping);
-	NSParameterAssert(tax);
-
-	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
-	payload[@"t"] = @"transaction";
-	payload[@"ti"] = transactionID;
-	payload[@"ta"] = affliation;
-	payload[@"tr"] = revenue;
-	payload[@"ts"] = shipping;
-	payload[@"tt"] = tax;
-	if (currencyCode) {
-		payload[@"cu"] = currencyCode;
-	}
-	[self _addRecord:payload];
-}
-
-- (void)trackItem:(NSString *)transactionID name:(NSString *)name SKU:(NSString *)SKU cateogory:(NSString *)category price:(NSNumber *)price quantity:(NSNumber *)quantity currencyCode:(NSString *)currencyCode
-{
-	[self _doAssertion];
-	NSParameterAssert(transactionID);
-	NSParameterAssert(name);
-	NSParameterAssert(SKU);
-	NSParameterAssert(category);
-	NSParameterAssert(price);
-	NSParameterAssert(quantity);
-
-	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
-	payload[@"t"] = @"item";
-	payload[@"ti"] = transactionID;
-	payload[@"in"] = name;
-	payload[@"ip"] = price;
-	payload[@"iq"] = quantity;
-	payload[@"ic"] = SKU;
-	payload[@"iv"] = category;
-	if (currencyCode) {
-		payload[@"cu"] = currencyCode;
-	}
-	[self _addRecord:payload];
-}
-
-- (void)trackSocialInteractionsWithAction:(NSString *)action socialNetworkName:(NSString *)name target:(NSString *)target
-{
-	[self _doAssertion];
-	NSParameterAssert(action);
-	NSParameterAssert(name);
-	NSParameterAssert(target);
-
-	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
-	payload[@"t"] = @"social";
-	payload[@"sa"] = action;
-	payload[@"sn"] = name;
-	payload[@"st"] = target;
-	[self _addRecord:payload];
 }
 
 @end
