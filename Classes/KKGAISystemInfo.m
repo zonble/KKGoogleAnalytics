@@ -1,4 +1,4 @@
-#import "KKGASystemInfo.h"
+#import "KKGAISystemInfo.h"
 #import <CoreServices/CoreServices.h>
 
 NSString *KKUserAgentString() {
@@ -13,14 +13,14 @@ NSString *KKUserAgentString() {
 		NSString *OSVersion = [NSString stringWithFormat:@"%d_%d_%d", major, minor, bugfix];
 
 		userAgent = [NSString stringWithFormat:@"%@/%@ (Macintosh; N; Mac OS X %@) ",
-					 [KKGASystemInfo appName],
-					 [KKGASystemInfo appVersion],
+					 [KKGAISystemInfo appName],
+					 [KKGAISystemInfo appVersion],
 					 OSVersion] ;
 	});
 	return userAgent;
 }
 
-@implementation KKGASystemInfo
+@implementation KKGAISystemInfo
 
 + (NSString *)appName
 {

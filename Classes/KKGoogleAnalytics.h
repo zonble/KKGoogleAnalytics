@@ -1,5 +1,9 @@
 #import <Cocoa/Cocoa.h>
 
+@class KKGoogleAnalytics;
+
+KKGoogleAnalytics *KKGAI();
+
 @interface KKGoogleAnalytics : NSObject
 
 + (instancetype)sharedInstance;

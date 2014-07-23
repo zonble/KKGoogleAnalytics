@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "KKGASystemInfo.h"
+#import "KKGAISystemInfo.h"
 #import "KKGAI.h"
 
 @interface AppDelegate ()
@@ -9,12 +9,11 @@
 @end
 
 @implementation AppDelegate
-            
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-//	NSLog(@"KKUserAgentString():%@", KKUserAgentString());
-	[KKGoogleAnalytics sharedInstance].trackingID = @"UA-144934-12";
-	[[KKGoogleAnalytics sharedInstance] send:[[KKGADictionaryBuilder createScreenView:@"Hi"] build]];
+	KKGAI().trackingID = @"UA-144934-12";
+	[KKGAI() send:[[KKGADictionaryBuilder createScreenView:@"KKBOX"] build]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

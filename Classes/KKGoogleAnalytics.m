@@ -1,6 +1,11 @@
 #import "KKGoogleAnalytics.h"
 #import "KKGAFields.h"
-#import "KKGASystemInfo.h"
+#import "KKGAISystemInfo.h"
+
+KKGoogleAnalytics *KKGAI()
+{
+	return [KKGoogleAnalytics sharedInstance];
+}
 
 @interface NSString (HTTPFormExtensions)
 + (instancetype)stringAsWWWURLEncodedFormFromDictionary:(NSDictionary *)formDictionary;
