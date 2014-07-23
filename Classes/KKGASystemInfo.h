@@ -2,7 +2,7 @@
 
 NSString *KKUserAgentString();
 
-@interface KKGAISystemInfo : NSObject
+@interface KKGASystemInfo : NSObject
 + (NSString *)appName;
 + (NSString *)appVersion;
 @end

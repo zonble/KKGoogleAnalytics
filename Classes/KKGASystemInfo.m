@@ -1,11 +1,10 @@
-#import "KKGAISystemInfo.h"
+#import "KKGASystemInfo.h"
 #import <CoreServices/CoreServices.h>
 
 NSString *KKUserAgentString() {
 	static NSString *userAgent;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		NSProcessInfo *info = [NSProcessInfo processInfo];
 		SInt32 major, minor, bugfix;
 		Gestalt(gestaltSystemVersionMajor, &major);
 		Gestalt(gestaltSystemVersionMinor, &minor);
@@ -13,14 +12,14 @@ NSString *KKUserAgentString() {
 		NSString *OSVersion = [NSString stringWithFormat:@"%d_%d_%d", major, minor, bugfix];
 
 		userAgent = [NSString stringWithFormat:@"%@/%@ (Macintosh; N; Mac OS X %@) ",
-					 [KKGAISystemInfo appName],
-					 [KKGAISystemInfo appVersion],
+					 [KKGASystemInfo appName],
+					 [KKGASystemInfo appVersion],
 					 OSVersion] ;
 	});
 	return userAgent;
 }
 
-@implementation KKGAISystemInfo
+@implementation KKGASystemInfo
 
 + (NSString *)appName
 {

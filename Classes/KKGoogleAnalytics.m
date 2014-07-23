@@ -1,6 +1,6 @@
 #import "KKGoogleAnalytics.h"
 #import "KKGAFields.h"
-#import "KKGAISystemInfo.h"
+#import "KKGASystemInfo.h"
 
 KKGoogleAnalytics *KKGAI()
 {

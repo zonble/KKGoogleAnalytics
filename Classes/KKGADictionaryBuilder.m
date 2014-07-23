@@ -1,6 +1,6 @@
 #import "KKGADictionaryBuilder.h"
 #import "KKGAFields.h"
-#import "KKGAISystemInfo.h"
+#import "KKGASystemInfo.h"
 
 @interface KKGADictionaryBuilder()
 @property (strong, nonatomic) NSMutableDictionary *dictionary;
@@ -58,8 +58,8 @@
 	KKGADictionaryBuilder *builder = [[KKGADictionaryBuilder alloc] init];
 	NSMutableDictionary *payload = [NSMutableDictionary dictionary];
 	payload[kKKGAIHitType] = kKKGAIAppView;
-	payload[kKKGAIAppName] = [KKGAISystemInfo appName];
-	payload[kKKGAIAppVersion] = [KKGAISystemInfo appVersion];
+	payload[kKKGAIAppName] = [KKGASystemInfo appName];
+	payload[kKKGAIAppVersion] = [KKGASystemInfo appVersion];
 	payload[kKKGAIScreenName] = tag;
 	[builder.dictionary setDictionary:payload];
 	return builder;

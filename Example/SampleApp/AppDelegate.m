@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import "KKGAISystemInfo.h"
 #import "KKGAI.h"
 
 @interface AppDelegate ()
