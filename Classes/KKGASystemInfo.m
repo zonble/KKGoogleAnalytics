@@ -13,13 +13,12 @@ NSString *KKUserAgentString() {
 		Gestalt(gestaltSystemVersionBugFix, &bugfix);
 		NSString *OSVersion = [NSString stringWithFormat:@"%d_%d_%d", major, minor, bugfix];
 
-		userAgent = [NSString stringWithFormat:@"%@/%@ (%@; U; %@ Mac OS X %@)",
+		userAgent = [NSString stringWithFormat:@"%@/%@ (Macintosh; %@ Mac OS X %@; %@)",
 					 [KKGASystemInfo appName],
 					 [KKGASystemInfo appVersion],
-					 [KKGASystemInfo machineModel],
 					 [KKGASystemInfo CPUType],
-					 OSVersion
-					 ] ;
+					 OSVersion,
+					 [KKGASystemInfo machineModel]] ;
 	});
 	return userAgent;
 }
