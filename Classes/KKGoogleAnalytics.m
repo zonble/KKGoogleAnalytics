@@ -134,12 +134,21 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 		return;
 	}
 
-	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Record" inManagedObjectContext:self.managedObjectContext];
-	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	[request setEntity:entityDescription];
-	NSError *error;
-	__block NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
-	if (![array count]) {
+	__block NSError *error = nil;
+	__block NSArray *array = nil;
+	void (^getArrayBlock)(void) = ^{
+		NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Record" inManagedObjectContext:self.managedObjectContext];
+		NSFetchRequest *request = [[NSFetchRequest alloc] init];
+		[request setEntity:entityDescription];
+		array = [self.managedObjectContext executeFetchRequest:request error:&error];
+	};
+	if (![NSThread isMainThread]) {
+		dispatch_sync(dispatch_get_main_queue(), getArrayBlock);
+	}
+	else {
+		getArrayBlock();
+	}
+	if (!array || ![array count]) {
 		return;
 	}
 	NSMutableString *s = [NSMutableString string];
@@ -155,10 +164,12 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 
 	[NSURLConnection sendAsynchronousRequest:HTTPRequest queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 		if (!connectionError) {
-			for (id object in array) {
-				[self.managedObjectContext deleteObject:object];
-			}
-			[self.managedObjectContext save:nil];
+			dispatch_async(dispatch_get_main_queue(), ^{
+				for (id object in array) {
+					[self.managedObjectContext deleteObject:object];
+				}
+				[self.managedObjectContext save:nil];
+			});
 		}
 	}];
 }
@@ -203,10 +214,18 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	}
 
 	NSString *text = [NSString stringAsWWWURLEncodedFormFromDictionary:payload];
-	NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:@"Record" inManagedObjectContext:self.managedObjectContext];
-	[object setValue:text forKey:@"text"];
-	[self.managedObjectContext insertObject:object];
-	[self.managedObjectContext save:nil];
+	void (^insertAndSaveBlock)(void) = ^{
+		NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:@"Record" inManagedObjectContext:self.managedObjectContext];
+		[object setValue:text forKey:@"text"];
+		[self.managedObjectContext insertObject:object];
+		[self.managedObjectContext save:nil];
+	};
+	if (![NSThread isMainThread]) {
+		dispatch_async(dispatch_get_main_queue(), insertAndSaveBlock);
+	}
+	else {
+		insertAndSaveBlock();
+	}
 }
 
 @end
