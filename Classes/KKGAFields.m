@@ -63,11 +63,6 @@ NSString *const kKKGAITimingLabel = @"utl";
 NSString *const kKKGAIExDescription = @"exd";
 NSString *const kKKGAIExFatal = @"exf";
 
-//NSString *const kKKGAISampleRate;
-
-//NSString *const kKKGAIIdfa;
-//NSString *const kKKGAIAdTargetingEnabled;
-
 // hit types
 NSString *const kKKGAIAppView = @"appview";
 NSString *const kKKGAIPageView = @"pageview";

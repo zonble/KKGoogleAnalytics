@@ -63,11 +63,6 @@ extern NSString *const kKKGAITimingLabel;
 extern NSString *const kKKGAIExDescription;
 extern NSString *const kKKGAIExFatal;
 
-//extern NSString *const kKKGAISampleRate;
-
-//extern NSString *const kKKGAIIdfa;
-//extern NSString *const kKKGAIAdTargetingEnabled;
-
 // hit types
 extern NSString *const kKKGAIAppView;
 extern NSString *const kKKGAIPageView;
@@ -82,6 +77,16 @@ extern NSString *const kKKGAIExperimentID;
 extern NSString *const kKKGAIExperimentVariant;
 
 @interface KKGAFields : NSObject
+/*!
+ Generates the correct parameter name for a custon dimension with an index.
+ @param index the index of the custom dimension.
+ @return an NSString representing the custom dimension parameter for the index.
+ */
 + (NSString *)customDimensionForIndex:(NSUInteger)index;
+/*!
+ Generates the correct parameter name for a custom metric with an index.
+ @param index the index of the custom metric.
+ @return an NSString representing the custom metric parameter for the index.
+ */
 + (NSString *)customMetricForIndex:(NSUInteger)index;
 @end
