@@ -83,4 +83,32 @@ NSString *KKUserAgentString() {
 	return @"Just an Apple Computer"; //incase model name can't be read
 }
 
++ (NSString *)primaryLanguage
+{
+	NSArray *languages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+	return languages[0];
+}
+
++ (NSString *)screenResolutionString
+{
+	NSScreen *screen = [NSScreen mainScreen];
+	return [NSString stringWithFormat:@"%ldx%ld", (long)screen.frame.size.width, (long)screen.frame.size.height];
+}
+
++ (NSString *)screenDepthString
+{
+	NSScreen *screen = [NSScreen mainScreen];
+	switch (screen.depth) {
+		case NSWindowDepthTwentyfourBitRGB:
+			return @"24-bits";
+		case NSWindowDepthSixtyfourBitRGB:
+			return @"64-bits";
+		case NSWindowDepthOnehundredtwentyeightBitRGB:
+			return @"128-bits";
+		default:
+			break;
+	}
+	return nil;
+}
+
 @end
