@@ -87,28 +87,14 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 		if (!existingClientID) {
 			existingClientID = GenerateUUIDString();
 			[[NSUserDefaults standardUserDefaults] setObject:existingClientID forKey:@"GoogleAnalyticsClientID"];
+			[[NSUserDefaults standardUserDefaults] synchronize];
 		}
 		NSArray *languages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
 		self.language = languages[0];
 		self.clientID = existingClientID;
-		NSScreen *screen = [NSScreen mainScreen];
-		self.screenResolution = [NSString stringWithFormat:@"%ldx%ld", (long)screen.frame.size.width, (long)screen.frame.size.height];
-
-		switch (screen.depth) {
-			case NSWindowDepthTwentyfourBitRGB:
-				self.screenDepth = @"24-bits";
-				break;
-			case NSWindowDepthSixtyfourBitRGB:
-				self.screenDepth = @"64-bits";
-				break;
-			case NSWindowDepthOnehundredtwentyeightBitRGB:
-				self.screenDepth = @"128-bits";
-				break;
-			default:
-				self.screenDepth = nil;
-				break;
-		}
-		[self _sendPayloads];
+		self.screenResolution = [KKGASystemInfo screenResolutionString];
+		self.screenDepth = [KKGASystemInfo screenDepthString];
+		[self dispatch];
 		[self _scheduleTimer];
 	}
 	return self;
@@ -116,7 +102,7 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 
 - (void)timer:(NSTimer *)timer
 {
-	[self _sendPayloads];
+	[self dispatch];
 }
 
 - (void)_scheduleTimer
@@ -128,10 +114,10 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	self.timer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(timer:) userInfo:nil repeats:YES];
 }
 
-- (void)_sendPayloads
+- (BOOL)dispatch
 {
 	if ([self.operationQueue operationCount]) {
-		return;
+		return NO;
 	}
 
 	__block NSError *error = nil;
@@ -149,17 +135,17 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 		getArrayBlock();
 	}
 	if (!array || ![array count]) {
-		return;
+		return NO;
 	}
-	NSMutableString *s = [NSMutableString string];
+	NSMutableString *payload = [NSMutableString string];
 	[array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-		[s appendFormat:@"%@\n", [obj valueForKey:@"text"]];
+		[payload appendFormat:@"%@\n", [obj valueForKey:@"text"]];
 	}];
 
 	NSURL *URL = [NSURL URLWithString:@"http://www.google-analytics.com/collect"];
 	NSMutableURLRequest *HTTPRequest = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
 	[HTTPRequest setHTTPMethod:@"POST"];
-	[HTTPRequest setHTTPBody:[s dataUsingEncoding:NSUTF8StringEncoding]];
+	[HTTPRequest setHTTPBody:[payload dataUsingEncoding:NSUTF8StringEncoding]];
 	[HTTPRequest addValue:KKUserAgentString() forHTTPHeaderField:@"User-Agent"];
 
 	[NSURLConnection sendAsynchronousRequest:HTTPRequest queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -172,6 +158,7 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 			});
 		}
 	}];
+	return YES;
 }
 
 - (void)startDispatching
@@ -200,18 +187,12 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	payload[kKKGAITrackingId] = self.trackingID;
 	payload[kKKGAIClientId] = self.clientID;
 
-	if (self.userID) {
-		payload[kKKGAIUserId] = self.userID;
-	}
-	if (self.screenResolution) {
-		payload[kKKGAIScreenResolution] = self.screenResolution;
-	}
-	if (self.screenDepth) {
-		payload[kKKGAIScreenColors] = self.screenDepth;
-	}
-	if (self.language) {
-		payload[kKKGAILanguage] = self.language;
-	}
+#define SET(k, v) if(v) { payload[k] = v; }
+	SET(kKKGAIUserId, self.userID);
+	SET(kKKGAIScreenResolution, self.screenResolution);
+	SET(kKKGAIScreenColors, self.screenDepth);
+	SET(kKKGAILanguage, self.language);
+#undef SET
 
 	NSString *text = [NSString stringAsWWWURLEncodedFormFromDictionary:payload];
 	void (^insertAndSaveBlock)(void) = ^{
@@ -289,10 +270,10 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 		}
 	}
 
-	NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"GoogleAnalytics.storedata"];
+	NSURL *storedDataURL = [applicationFilesDirectory URLByAppendingPathComponent:@"GoogleAnalytics.storedata"];
 	NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
 	NSString *type = NSSQLiteStoreType; // NSXMLStoreType
-	if (![coordinator addPersistentStoreWithType:type configuration:nil URL:url options:nil error:&error]) {
+	if (![coordinator addPersistentStoreWithType:type configuration:nil URL:storedDataURL options:nil error:&error]) {
 		[[NSApplication sharedApplication] presentError:error];
 		return nil;
 	}
