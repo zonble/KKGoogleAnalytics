@@ -228,11 +228,6 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	}
 }
 
-@end
-
-
-@implementation KKGoogleAnalytics (CoreData)
-
 - (NSURL *)applicationFilesDirectory
 {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
