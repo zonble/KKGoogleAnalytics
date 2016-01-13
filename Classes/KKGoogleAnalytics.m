@@ -223,7 +223,8 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 		return _managedObjectModel;
 	}
 
-	NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"GoogleAnalytics" withExtension:@"momd"];
+        NSBundle *frameworkBundle = ([NSBundle bundleForClass:[KKGoogleAnalytics class]]) ? : [NSBundle mainBundle];
+	NSURL *modelURL = [frameworkBundle URLForResource:@"GoogleAnalytics" withExtension:@"momd"];
 	_managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
 	return _managedObjectModel;
 }
