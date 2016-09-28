@@ -7,11 +7,21 @@ NSString *KKUserAgentString() {
 	static NSString *userAgent;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		SInt32 major, minor, bugfix;
-		Gestalt(gestaltSystemVersionMajor, &major);
-		Gestalt(gestaltSystemVersionMinor, &minor);
-		Gestalt(gestaltSystemVersionBugFix, &bugfix);
-		NSString *OSVersion = [NSString stringWithFormat:@"%d_%d_%d", major, minor, bugfix];
+		NSString *OSVersion = @"";
+		if ([[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)]) {
+			NSOperatingSystemVersion versionInfo = [NSProcessInfo processInfo].operatingSystemVersion;
+			OSVersion = [NSString stringWithFormat:@"%ld_%ld_%ld", (long)versionInfo.majorVersion, versionInfo.minorVersion, (long)versionInfo.patchVersion];
+		}
+		else {
+			SInt32 major, minor, bugfix;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+			Gestalt(gestaltSystemVersionMajor, &major);
+			Gestalt(gestaltSystemVersionMinor, &minor);
+			Gestalt(gestaltSystemVersionBugFix, &bugfix);
+			OSVersion = [NSString stringWithFormat:@"%d_%d_%d", major, minor, bugfix];
+#pragma clang diagnostic pop
+		}
 
 		userAgent = [NSString stringWithFormat:@"%@/%@ (Macintosh; %@ Mac OS X %@; %@)",
 					 [KKGASystemInfo appName],
