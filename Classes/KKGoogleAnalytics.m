@@ -142,7 +142,7 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 		[payload appendFormat:@"%@\n", [obj valueForKey:@"text"]];
 	}];
 
-	NSURL *URL = [NSURL URLWithString:@"http://www.google-analytics.com/collect"];
+	NSURL *URL = [NSURL URLWithString:@"https://ssl.google-analytics.com/collect"];
 	NSMutableURLRequest *HTTPRequest = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
 	[HTTPRequest setHTTPMethod:@"POST"];
 	[HTTPRequest setHTTPBody:[payload dataUsingEncoding:NSUTF8StringEncoding]];
