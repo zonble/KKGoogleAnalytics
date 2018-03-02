@@ -2,7 +2,7 @@
 #import "KKGAFields.h"
 #import "KKGASystemInfo.h"
 
-KKGoogleAnalytics *KKGAI() {
+KKGoogleAnalytics *KKGAI(void) {
 	return [KKGoogleAnalytics sharedInstance];
 }
 

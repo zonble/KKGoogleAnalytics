@@ -2,7 +2,7 @@
 
 @class KKGoogleAnalytics;
 
-KKGoogleAnalytics *_Nonnull KKGAI();
+KKGoogleAnalytics *_Nonnull KKGAI(void);
 
 /** The top-level class. */
 @interface KKGoogleAnalytics : NSObject

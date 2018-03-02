@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "KKGoogleAnalytics"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
   s.summary = "Another Google Analytics library for Mac OS X."
 
   s.description = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.social_media_url = "http://twitter.com/zonble"
 
   s.platform = :osx
-  s.osx.deployment_target = "10.8"
+  s.osx.deployment_target = "10.10"
 
   s.source = {:git => "https://github.com/zonble/KKGoogleAnalytics.git", :tag => "0.0.3"}
 

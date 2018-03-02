@@ -3,7 +3,7 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
-NSString *KKUserAgentString() {
+NSString *KKUserAgentString(void) {
 	static NSString *userAgent;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
