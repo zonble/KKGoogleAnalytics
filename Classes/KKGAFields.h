@@ -1,5 +1,10 @@
 @import Foundation;
 
+/*!
+ These fields can be used for the wire format parameter names required by
+ the |GAITracker| get, set and send methods as well as the set methods in the
+ |GAIDictionaryBuilder| class.
+ */
 extern NSString * _Nonnull const kKKGAIHitType;
 extern NSString * _Nonnull const kKKGAITrackingId;
 extern NSString * _Nonnull const kKKGAIClientId;
@@ -76,14 +81,20 @@ extern NSString * _Nonnull const kKKGAITiming;
 extern NSString * _Nonnull const kKKGAIExperimentID;
 extern NSString * _Nonnull const kKKGAIExperimentVariant;
 
+/**
+ This class provides several fields and methods useful as wire format parameter
+ names.  The methods are used for wire format parameter names that are indexed.
+ */
 @interface KKGAFields : NSObject
-/*!
+
+/**
  Generates the correct parameter name for a custon dimension with an index.
  @param index the index of the custom dimension.
  @return an NSString representing the custom dimension parameter for the index.
  */
 + (nonnull NSString *)customDimensionForIndex:(NSUInteger)index;
-/*!
+
+/**
  Generates the correct parameter name for a custom metric with an index.
  @param index the index of the custom metric.
  @return an NSString representing the custom metric parameter for the index.

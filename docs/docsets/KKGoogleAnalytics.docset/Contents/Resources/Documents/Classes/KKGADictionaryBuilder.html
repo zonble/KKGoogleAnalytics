@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KKGADictionaryBuilder Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/KKGADictionaryBuilder" class="dashAnchor"></a>
+    <a title="KKGADictionaryBuilder Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">KKGoogleAnalytics Docs</a> (12% documented)</p>
+        <p class="header-right"><a href="https://github.com/zonble/KKGoogleAnalytics"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">KKGoogleAnalytics Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        KKGADictionaryBuilder Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/KKGADictionaryBuilder.html">KKGADictionaryBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/KKGAFields.html">KKGAFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/KKGoogleAnalytics.html">KKGoogleAnalytics</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIAnonymizeIp">kKKGAIAnonymizeIp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIAppId">kKKGAIAppId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIAppInstallerId">kKKGAIAppInstallerId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIAppName">kKKGAIAppName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIAppVersion">kKKGAIAppVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIAppView">kKKGAIAppView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAICampaignContent">kKKGAICampaignContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAICampaignId">kKKGAICampaignId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAICampaignKeyword">kKKGAICampaignKeyword</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAICampaignMedium">kKKGAICampaignMedium</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAICampaignName">kKKGAICampaignName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAICampaignSource">kKKGAICampaignSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIClientId">kKKGAIClientId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAICurrencyCode">kKKGAICurrencyCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIDescription">kKKGAIDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIEncoding">kKKGAIEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIEvent">kKKGAIEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIEventAction">kKKGAIEventAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIEventCategory">kKKGAIEventCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIEventLabel">kKKGAIEventLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIEventValue">kKKGAIEventValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIExDescription">kKKGAIExDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIExFatal">kKKGAIExFatal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIException">kKKGAIException</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIExperimentID">kKKGAIExperimentID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIExperimentVariant">kKKGAIExperimentVariant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIFlashVersion">kKKGAIFlashVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIHitType">kKKGAIHitType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIHostname">kKKGAIHostname</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIItem">kKKGAIItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIItemCategory">kKKGAIItemCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIItemName">kKKGAIItemName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIItemPrice">kKKGAIItemPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIItemQuantity">kKKGAIItemQuantity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIItemSku">kKKGAIItemSku</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIJavaEnabled">kKKGAIJavaEnabled</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAILanguage">kKKGAILanguage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAILocation">kKKGAILocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAINonInteraction">kKKGAINonInteraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIPage">kKKGAIPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIPageView">kKKGAIPageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIReferrer">kKKGAIReferrer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIScreenColors">kKKGAIScreenColors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIScreenName">kKKGAIScreenName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIScreenResolution">kKKGAIScreenResolution</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAISessionControl">kKKGAISessionControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAISocial">kKKGAISocial</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAISocialAction">kKKGAISocialAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAISocialNetwork">kKKGAISocialNetwork</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAISocialTarget">kKKGAISocialTarget</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITiming">kKKGAITiming</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITimingCategory">kKKGAITimingCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITimingLabel">kKKGAITimingLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITimingValue">kKKGAITimingValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITimingVar">kKKGAITimingVar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITitle">kKKGAITitle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITrackingId">kKKGAITrackingId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITransaction">kKKGAITransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITransactionAffiliation">kKKGAITransactionAffiliation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITransactionId">kKKGAITransactionId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITransactionRevenue">kKKGAITransactionRevenue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITransactionShipping">kKKGAITransactionShipping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAITransactionTax">kKKGAITransactionTax</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIUserId">kKKGAIUserId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kKKGAIViewportSize">kKKGAIViewportSize</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@KKGAI">KKGAI</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>KKGADictionaryBuilder</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">KKGADictionaryBuilder</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Helper class to build a dictionary of hit parameters and values.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(im)set:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/-set:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(im)set:forKey:">-set:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">set</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">value</span> <span class="nf">forKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(im)setAll:"></a>
+                    <a name="//apple_ref/objc/Method/-setAll:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(im)setAll:">-setAll:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setAll</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">params</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setAll</span><span class="p">(</span><span class="n">_</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(im)get:"></a>
+                    <a name="//apple_ref/objc/Method/-get:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(im)get:">-get:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">get</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">paramName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">_</span> <span class="nv">paramName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(im)build"></a>
+                    <a name="//apple_ref/objc/Method/-build" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(im)build">-build</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">build</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">build</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">NSMutableDictionary</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ClassMethods"></a>
+                <a name="//apple_ref/objc/Section/ClassMethods" class="dashAnchor"></a>
+                <a href="#/ClassMethods">
+                  <h3 class="section-name">ClassMethods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(cm)createScreenView:"></a>
+                    <a name="//apple_ref/objc/Method/+createScreenView:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(cm)createScreenView:">+createScreenView:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">createScreenView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">tag</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">createScreenView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(cm)createPageViewWithName:hostname:page:"></a>
+                    <a name="//apple_ref/objc/Method/+createPageViewWithName:hostname:page:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(cm)createPageViewWithName:hostname:page:">+createPageViewWithName:hostname:page:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">createPageViewWithName</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">hostname</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">hostname</span> <span class="nf">page</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">page</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">createPageView</span><span class="p">(</span><span class="n">withName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">hostname</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(cm)createEventWithCategory:action:label:value:"></a>
+                    <a name="//apple_ref/objc/Method/+createEventWithCategory:action:label:value:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(cm)createEventWithCategory:action:label:value:">+createEventWithCategory:action:label:value:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">createEventWithCategory</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">category</span> <span class="nf">action</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">action</span> <span class="nf">label</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">label</span> <span class="nf">value</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">value</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">createEvent</span><span class="p">(</span><span class="n">withCategory</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(cm)createTransaction:affliation:revenue:shipping:tax:currencyCode:"></a>
+                    <a name="//apple_ref/objc/Method/+createTransaction:affliation:revenue:shipping:tax:currencyCode:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(cm)createTransaction:affliation:revenue:shipping:tax:currencyCode:">+createTransaction:affliation:revenue:shipping:tax:currencyCode:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">createTransaction</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">transactionID</span> <span class="nf">affliation</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">affliation</span> <span class="nf">revenue</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">revenue</span> <span class="nf">shipping</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">shipping</span> <span class="nf">tax</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">tax</span> <span class="nf">currencyCode</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">currencyCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">createTransaction</span><span class="p">(</span><span class="n">_</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">affliation</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">revenue</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">,</span> <span class="nv">shipping</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">,</span> <span class="nv">tax</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">,</span> <span class="nv">currencyCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(cm)createItem:name:SKU:cateogory:price:quantity:currencyCode:"></a>
+                    <a name="//apple_ref/objc/Method/+createItem:name:SKU:cateogory:price:quantity:currencyCode:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(cm)createItem:name:SKU:cateogory:price:quantity:currencyCode:">+createItem:name:SKU:cateogory:price:quantity:currencyCode:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">createItem</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">transactionID</span> <span class="nf">name</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">SKU</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">SKU</span> <span class="nf">cateogory</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">category</span> <span class="nf">price</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">price</span> <span class="nf">quantity</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">quantity</span> <span class="nf">currencyCode</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">currencyCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">createItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">sku</span> <span class="kt">SKU</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">cateogory</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">price</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">,</span> <span class="nv">quantity</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">,</span> <span class="nv">currencyCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(cm)createSocialWithNetwork:action:target:"></a>
+                    <a name="//apple_ref/objc/Method/+createSocialWithNetwork:action:target:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(cm)createSocialWithNetwork:action:target:">+createSocialWithNetwork:action:target:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">createSocialWithNetwork</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">network</span> <span class="nf">action</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">action</span> <span class="nf">target</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">target</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">createSocial</span><span class="p">(</span><span class="n">withNetwork</span> <span class="nv">network</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(cm)createTimingWithCategory:interval:name:label:"></a>
+                    <a name="//apple_ref/objc/Method/+createTimingWithCategory:interval:name:label:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(cm)createTimingWithCategory:interval:name:label:">+createTimingWithCategory:interval:name:label:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">createTimingWithCategory</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">category</span> <span class="nf">interval</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">intervalMillis</span> <span class="nf">name</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">label</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">label</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">createTiming</span><span class="p">(</span><span class="n">withCategory</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">interval</span> <span class="nv">intervalMillis</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)KKGADictionaryBuilder(cm)createExceptionWithDescription:withFatal:"></a>
+                    <a name="//apple_ref/objc/Method/+createExceptionWithDescription:withFatal:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)KKGADictionaryBuilder(cm)createExceptionWithDescription:withFatal:">+createExceptionWithDescription:withFatal:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">createExceptionWithDescription</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">description</span> <span class="nf">withFatal</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">fatal</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">createException</span><span class="p">(</span><span class="n">withDescription</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">withFatal</span> <span class="nv">fatal</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/zonble/KKGoogleAnalyticsC/tree/0.0.3/Classes/KKGADictionaryBuilder.h#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="https://zonble.net" target="_blank" rel="external">zonble</a>. All rights reserved. (Last updated: 2018-03-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

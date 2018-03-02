@@ -1,0 +1,572 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 5,
+      "symbol": "KKGADictionaryBuilder.-set:forKey:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 6,
+      "symbol": "KKGADictionaryBuilder.-setAll:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 7,
+      "symbol": "KKGADictionaryBuilder.-get:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 8,
+      "symbol": "KKGADictionaryBuilder.-build",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 11,
+      "symbol": "KKGADictionaryBuilder(ClassMethods)",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 12,
+      "symbol": "KKGADictionaryBuilder.+createScreenView:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 13,
+      "symbol": "KKGADictionaryBuilder.+createPageViewWithName:hostname:page:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 14,
+      "symbol": "KKGADictionaryBuilder.+createEventWithCategory:action:label:value:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 15,
+      "symbol": "KKGADictionaryBuilder.+createTransaction:affliation:revenue:shipping:tax:currencyCode:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 16,
+      "symbol": "KKGADictionaryBuilder.+createItem:name:SKU:cateogory:price:quantity:currencyCode:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 18,
+      "symbol": "KKGADictionaryBuilder.+createSocialWithNetwork:action:target:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 19,
+      "symbol": "KKGADictionaryBuilder.+createTimingWithCategory:interval:name:label:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGADictionaryBuilder.h",
+      "line": 20,
+      "symbol": "KKGADictionaryBuilder.+createExceptionWithDescription:withFatal:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 8,
+      "symbol": "kKKGAIHitType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 9,
+      "symbol": "kKKGAITrackingId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 10,
+      "symbol": "kKKGAIClientId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 11,
+      "symbol": "kKKGAIAnonymizeIp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 12,
+      "symbol": "kKKGAISessionControl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 13,
+      "symbol": "kKKGAIScreenResolution",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 14,
+      "symbol": "kKKGAIViewportSize",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 15,
+      "symbol": "kKKGAIEncoding",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 16,
+      "symbol": "kKKGAIScreenColors",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 17,
+      "symbol": "kKKGAILanguage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 18,
+      "symbol": "kKKGAIJavaEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 19,
+      "symbol": "kKKGAIFlashVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 20,
+      "symbol": "kKKGAINonInteraction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 21,
+      "symbol": "kKKGAIReferrer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 22,
+      "symbol": "kKKGAILocation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 23,
+      "symbol": "kKKGAIHostname",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 24,
+      "symbol": "kKKGAIPage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 25,
+      "symbol": "kKKGAIDescription",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 26,
+      "symbol": "kKKGAIScreenName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 27,
+      "symbol": "kKKGAITitle",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 28,
+      "symbol": "kKKGAIAppName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 29,
+      "symbol": "kKKGAIAppVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 30,
+      "symbol": "kKKGAIAppId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 31,
+      "symbol": "kKKGAIAppInstallerId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 32,
+      "symbol": "kKKGAIUserId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 34,
+      "symbol": "kKKGAIEventCategory",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 35,
+      "symbol": "kKKGAIEventAction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 36,
+      "symbol": "kKKGAIEventLabel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 37,
+      "symbol": "kKKGAIEventValue",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 39,
+      "symbol": "kKKGAISocialNetwork",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 40,
+      "symbol": "kKKGAISocialAction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 41,
+      "symbol": "kKKGAISocialTarget",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 43,
+      "symbol": "kKKGAITransactionId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 44,
+      "symbol": "kKKGAITransactionAffiliation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 45,
+      "symbol": "kKKGAITransactionRevenue",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 46,
+      "symbol": "kKKGAITransactionShipping",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 47,
+      "symbol": "kKKGAITransactionTax",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 48,
+      "symbol": "kKKGAICurrencyCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 50,
+      "symbol": "kKKGAIItemPrice",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 51,
+      "symbol": "kKKGAIItemQuantity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 52,
+      "symbol": "kKKGAIItemSku",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 53,
+      "symbol": "kKKGAIItemName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 54,
+      "symbol": "kKKGAIItemCategory",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 56,
+      "symbol": "kKKGAICampaignSource",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 57,
+      "symbol": "kKKGAICampaignMedium",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 58,
+      "symbol": "kKKGAICampaignName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 59,
+      "symbol": "kKKGAICampaignKeyword",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 60,
+      "symbol": "kKKGAICampaignContent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 61,
+      "symbol": "kKKGAICampaignId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 63,
+      "symbol": "kKKGAITimingCategory",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 64,
+      "symbol": "kKKGAITimingVar",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 65,
+      "symbol": "kKKGAITimingValue",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 66,
+      "symbol": "kKKGAITimingLabel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 68,
+      "symbol": "kKKGAIExDescription",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 69,
+      "symbol": "kKKGAIExFatal",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 72,
+      "symbol": "kKKGAIAppView",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 73,
+      "symbol": "kKKGAIPageView",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 74,
+      "symbol": "kKKGAIEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 75,
+      "symbol": "kKKGAISocial",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 76,
+      "symbol": "kKKGAITransaction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 77,
+      "symbol": "kKKGAIItem",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 78,
+      "symbol": "kKKGAIException",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 79,
+      "symbol": "kKKGAITiming",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 81,
+      "symbol": "kKKGAIExperimentID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 82,
+      "symbol": "kKKGAIExperimentVariant",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGAFields.h",
+      "line": 84,
+      "symbol": "KKGAFields",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGoogleAnalytics.h",
+      "line": 5,
+      "symbol": "KKGAI",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/zonble/Work/KKGoogleAnalytics/Classes/KKGoogleAnalytics.h",
+      "line": 43,
+      "symbol": "KKGoogleAnalytics.userID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/zonble/Work/KKGoogleAnalytics"
+}

@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage = "https://github.com/zonble/KKGoogleAnalytics"
   s.license = "MIT"
 
-  s.author = {"Weizhong Yang" => "zonble@gmail.com"}
+  s.author = {"zonble" => "zonble@gmail.com"}
   s.social_media_url = "http://twitter.com/zonble"
 
   s.platform = :osx

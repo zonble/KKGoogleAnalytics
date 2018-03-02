@@ -1,5 +1,6 @@
 @import Foundation;
 
+/** Helper class to build a dictionary of hit parameters and values. */
 @interface KKGADictionaryBuilder : NSObject
 - (void)set:(nonnull NSString *)value forKey:(nonnull NSString *)key;
 - (void)setAll:(nonnull NSDictionary *)params;
