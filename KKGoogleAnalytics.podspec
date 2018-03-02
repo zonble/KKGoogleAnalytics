@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
   s.social_media_url = "http://twitter.com/zonble"
 
   s.platform = :osx
-  s.osx.deployment_target = "10.7"
+  s.osx.deployment_target = "10.8"
 
-  s.source = {:git => "https://github.com/zonble/KKGoogleAnalytics.git", :tag => "0.0.2"}
+  s.source = {:git => "https://github.com/zonble/KKGoogleAnalytics.git", :tag => "0.0.3"}
 
   s.source_files = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
