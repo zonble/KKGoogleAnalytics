@@ -1,20 +1,22 @@
-#import <Cocoa/Cocoa.h>
+@import Foundation;
 
 @class KKGoogleAnalytics;
 
-KKGoogleAnalytics *KKGAI();
+KKGoogleAnalytics *_Nonnull KKGAI();
 
 /*! The top-level class. */
 @interface KKGoogleAnalytics : NSObject
 
 /*!
- Get the shared instrance.
+ Get the shared instance.
 */
-+ (instancetype)sharedInstance;
++ (nonnull instancetype)sharedInstance;
+
 /*!
  Start the timer to do dispatching.
 */
 - (void)startDispatching;
+
 /*!
  Pause the timer to do dispatching.
 */
@@ -26,7 +28,8 @@ KKGoogleAnalytics *KKGAI();
         will be set just for this piece of tracking information, or
         nil for none.
 */
-- (void)send:(NSDictionary *)params;
+- (void)send:(nonnull NSDictionary *)params;
+
 /*!
   Dispatches any pending tracking information.
 */
@@ -36,6 +39,6 @@ KKGoogleAnalytics *KKGAI();
   The tracking ID to use for this tracker.  It should be of the form
  `UA-xxxxx-y`.
 */
-@property (strong, nonatomic) NSString *trackingID;
-@property (strong, nonatomic) NSString *userID;
+@property (strong, nonatomic, nullable) NSString *trackingID;
+@property (strong, nonatomic, nullable) NSString *userID;
 @end

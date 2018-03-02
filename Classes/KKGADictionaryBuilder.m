@@ -2,7 +2,7 @@
 #import "KKGAFields.h"
 #import "KKGASystemInfo.h"
 
-@interface KKGADictionaryBuilder()
+@interface KKGADictionaryBuilder ()
 @property (strong, nonatomic) NSMutableDictionary *dictionary;
 @end
 
@@ -36,6 +36,7 @@
 {
 	return self.dictionary[key];
 }
+
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
 {
 	self.dictionary[key] = obj;
@@ -51,7 +52,7 @@
 
 @implementation KKGADictionaryBuilder (ClassMethods)
 
-+ (KKGADictionaryBuilder *)createScreenView:(NSString *)tag
++ (instancetype)createScreenView:(NSString *)tag
 {
 	NSParameterAssert(tag);
 
@@ -64,7 +65,8 @@
 	[builder.dictionary setDictionary:payload];
 	return builder;
 }
-+ (KKGADictionaryBuilder *)createPageViewWithName:(NSString *)name hostname:(NSString *)hostname page:(NSString *)page
+
++ (instancetype)createPageViewWithName:(NSString *)name hostname:(NSString *)hostname page:(NSString *)page
 {
 	NSParameterAssert(name);
 	NSParameterAssert(hostname);
@@ -79,7 +81,8 @@
 	[builder.dictionary setDictionary:payload];
 	return builder;
 }
-+ (KKGADictionaryBuilder *)createEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value
+
++ (instancetype)createEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value
 {
 	NSParameterAssert(category);
 	NSParameterAssert(action);
@@ -98,7 +101,8 @@
 	[builder.dictionary setDictionary:payload];
 	return builder;
 }
-+ (KKGADictionaryBuilder *)createTransaction:(NSString *)transactionID affliation:(NSString *)affliation revenue:(NSNumber *)revenue shipping:(NSNumber *)shipping tax:(NSNumber *)tax currencyCode:(NSString *)currencyCode
+
++ (instancetype)createTransaction:(NSString *)transactionID affliation:(NSString *)affliation revenue:(NSNumber *)revenue shipping:(NSNumber *)shipping tax:(NSNumber *)tax currencyCode:(NSString *)currencyCode
 {
 	NSParameterAssert(transactionID);
 	NSParameterAssert(affliation);
@@ -120,7 +124,8 @@
 	[builder.dictionary setDictionary:payload];
 	return builder;
 }
-+ (KKGADictionaryBuilder *)createItem:(NSString *)transactionID name:(NSString *)name SKU:(NSString *)SKU cateogory:(NSString *)category price:(NSNumber *)price quantity:(NSNumber *)quantity currencyCode:(NSString *)currencyCode
+
++ (instancetype)createItem:(NSString *)transactionID name:(NSString *)name SKU:(NSString *)SKU cateogory:(NSString *)category price:(NSNumber *)price quantity:(NSNumber *)quantity currencyCode:(NSString *)currencyCode
 {
 	NSParameterAssert(transactionID);
 	NSParameterAssert(name);
@@ -144,7 +149,8 @@
 	[builder.dictionary setDictionary:payload];
 	return builder;
 }
-+ (KKGADictionaryBuilder *)createSocialWithNetwork:(NSString *)network action:(NSString *)action target:(NSString *)target
+
++ (instancetype)createSocialWithNetwork:(NSString *)network action:(NSString *)action target:(NSString *)target
 {
 	NSParameterAssert(network);
 	NSParameterAssert(action);
@@ -159,7 +165,8 @@
 	[builder.dictionary setDictionary:payload];
 	return builder;
 }
-+ (KKGADictionaryBuilder *)createTimingWithCategory:(NSString *)category interval:(NSNumber *)intervalMillis name:(NSString *)name label:(NSString *)label
+
++ (instancetype)createTimingWithCategory:(NSString *)category interval:(NSNumber *)intervalMillis name:(NSString *)name label:(NSString *)label
 {
 	NSParameterAssert(category);
 	NSParameterAssert(intervalMillis);
@@ -176,7 +183,8 @@
 	[builder.dictionary setDictionary:payload];
 	return builder;
 }
-+ (KKGADictionaryBuilder *)createExceptionWithDescription:(NSString *)description withFatal:(NSNumber *)fatal
+
++ (instancetype)createExceptionWithDescription:(NSString *)description withFatal:(NSNumber *)fatal
 {
 	NSParameterAssert(description);
 	NSParameterAssert(fatal);

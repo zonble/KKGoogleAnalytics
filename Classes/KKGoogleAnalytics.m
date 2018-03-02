@@ -2,8 +2,7 @@
 #import "KKGAFields.h"
 #import "KKGASystemInfo.h"
 
-KKGoogleAnalytics *KKGAI()
-{
+KKGoogleAnalytics *KKGAI() {
 	return [KKGoogleAnalytics sharedInstance];
 }
 
@@ -11,8 +10,7 @@ KKGoogleAnalytics *KKGAI()
 + (instancetype)stringAsWWWURLEncodedFormFromDictionary:(NSDictionary *)formDictionary;
 @end
 
-NS_INLINE NSString *KKEscape(NSString *inValue)
-{
+NS_INLINE NSString *KKEscape(NSString *inValue) {
 	CFStringRef escaped = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)inValue, NULL, CFSTR("&+"), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
 	return CFBridgingRelease(escaped);
 }
@@ -36,17 +34,16 @@ NS_INLINE NSString *KKEscape(NSString *inValue)
 }
 @end
 
-static NSString *GenerateUUIDString()
-{
-    CFUUIDRef uuid = CFUUIDCreate(NULL);
-    CFStringRef uuidStr = CFUUIDCreateString(NULL, uuid);
-    CFRelease(uuid);
-    return CFBridgingRelease(uuidStr);
+static NSString *GenerateUUIDString() {
+	CFUUIDRef uuid = CFUUIDCreate(NULL);
+	CFStringRef uuidStr = CFUUIDCreateString(NULL, uuid);
+	CFRelease(uuid);
+	return CFBridgingRelease(uuidStr);
 }
 
 static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDomain";
 
-@interface KKGoogleAnalytics()
+@interface KKGoogleAnalytics ()
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSString *clientID;
 @property (strong, nonatomic) NSString *screenResolution;
@@ -223,7 +220,7 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 		return _managedObjectModel;
 	}
 
-        NSBundle *frameworkBundle = ([NSBundle bundleForClass:[KKGoogleAnalytics class]]) ? : [NSBundle mainBundle];
+	NSBundle *frameworkBundle = ([NSBundle bundleForClass:[KKGoogleAnalytics class]]) ?: [NSBundle mainBundle];
 	NSURL *modelURL = [frameworkBundle URLForResource:@"GoogleAnalytics" withExtension:@"momd"];
 	_managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
 	return _managedObjectModel;
@@ -249,7 +246,7 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 
 	if (!properties) {
 		BOOL ok = NO;
-		if ([error code] == NSFileReadNoSuchFileError) {
+		if (error.code == NSFileReadNoSuchFileError) {
 			ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] withIntermediateDirectories:YES attributes:nil error:&error];
 		}
 		if (!ok) {

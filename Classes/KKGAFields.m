@@ -82,6 +82,7 @@ NSString *const kKKGAIExperimentVariant = @"xvar";
 {
 	return [NSString stringWithFormat:@"cd%lu", (unsigned long)index];
 }
+
 + (NSString *)customMetricForIndex:(NSUInteger)index
 {
 	return [NSString stringWithFormat:@"cm%lu", (unsigned long)index];

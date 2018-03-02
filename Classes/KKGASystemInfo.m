@@ -61,7 +61,7 @@ NSString *KKUserAgentString() {
 	int cpuType = -1;
 	if (error == 0) {
 		cpuType = value;
-		switch(value) {
+		switch(cpuType) {
 			case 7:
 				visibleCPUType = @"Intel";
 				break;

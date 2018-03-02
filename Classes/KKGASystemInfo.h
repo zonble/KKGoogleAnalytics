@@ -1,21 +1,21 @@
-#import <Foundation/Foundation.h>
+@import Foundation;
 
-NSString *KKUserAgentString();
+NSString * _Nonnull KKUserAgentString();
 
 /*! KKGASystemInfo helps to obtain required system information. */
 @interface KKGASystemInfo : NSObject
 /*! Get the name of current application. */
-+ (NSString *)appName;
++ (nullable NSString *)appName;
 /*! Get the version of current application. */
-+ (NSString *)appVersion;
++ (nullable NSString *)appVersion;
 /*! Get CPU type. It could be "Intel", "PowerPC" or "Unknown". */
-+ (NSString *)CPUType;
++ (nonnull NSString *)CPUType;
 /*! Get the model of current device. */
-+ (NSString *)machineModel;
++ (nonnull NSString *)machineModel;
 /*! Get the language code of current user's primary language. */
-+ (NSString *)primaryLanguage;
++ (nullable NSString *)primaryLanguage;
 /*! Get screen resolution, such as "1024x768". */
-+ (NSString *)screenResolutionString;
++ (nonnull NSString *)screenResolutionString;
 /*! Get screen depth, such as "24-bits", "64-bits" or "128-bits". */
-+ (NSString *)screenDepthString;
++ (nullable NSString *)screenDepthString;
 @end

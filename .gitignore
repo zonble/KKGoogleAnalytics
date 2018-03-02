@@ -28,3 +28,4 @@ Example/Pods
 Example/Podfile.lock
 Example/SampleApp.xcworkspace
 Example/SampleApp.xcodeproj/project.xcworkspace/
+.idea
