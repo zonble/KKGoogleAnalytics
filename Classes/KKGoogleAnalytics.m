@@ -1,3 +1,5 @@
+@import CoreData;
+
 #import "KKGoogleAnalytics.h"
 #import "KKGAFields.h"
 #import "KKGASystemInfo.h"

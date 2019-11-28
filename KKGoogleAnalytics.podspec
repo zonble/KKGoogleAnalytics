@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.exclude_files = "Classes/Exclude"
   s.resource = "Resources/GoogleAnalytics.xcdatamodeld"
   s.requires_arc = true
+  s.frameworks = ['CoreData']
 end
