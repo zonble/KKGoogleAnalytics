@@ -1,7 +1,7 @@
 KKGoogleAnalytics
 =================
 
-Yet another Google Analytics library for Mac.
+Yet another Google Analytics library for Mac and iOS (includes Mac Catalyst).
 
 Google has official Google Analytics SDKs for mobile platforms such as
 iOS and Adnroid, but Google does not provide such a SDK for Mac OS X,
@@ -28,7 +28,7 @@ hardware model information.
 
 ## Requirements
 
-KKGoogleAnalytics supports Mac OS X 10.7 and above.
+KKGoogleAnalytics supports Mac OS X 10.7 and above / iOS 3.0 and above / Mac Catalyst 13.0 and above.
 
 ## Installation
 
