@@ -252,7 +252,9 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 			ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] withIntermediateDirectories:YES attributes:nil error:&error];
 		}
 		if (!ok) {
+#if !TARGET_OS_IPHONE
 			[[NSApplication sharedApplication] presentError:error];
+#endif
 			return nil;
 		}
 	}
@@ -265,7 +267,9 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 			[dict setValue:failureDescription forKey:NSLocalizedDescriptionKey];
 			error = [NSError errorWithDomain:KKGoogleAnalyticsErrorDomain code:101 userInfo:dict];
 
+#if !TARGET_OS_IPHONE
 			[[NSApplication sharedApplication] presentError:error];
+#endif
 			return nil;
 		}
 	}
@@ -274,7 +278,9 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 	NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
 	NSString *type = NSSQLiteStoreType; // NSXMLStoreType
 	if (![coordinator addPersistentStoreWithType:type configuration:nil URL:storedDataURL options:nil error:&error]) {
+#if !TARGET_OS_IPHONE
 		[[NSApplication sharedApplication] presentError:error];
+#endif
 		return nil;
 	}
 	_persistentStoreCoordinator = coordinator;
@@ -294,7 +300,9 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 		[dict setValue:@"Failed to initialize the store" forKey:NSLocalizedDescriptionKey];
 		[dict setValue:@"There was an error building up the data file." forKey:NSLocalizedFailureReasonErrorKey];
 		NSError *error = [NSError errorWithDomain:KKGoogleAnalyticsErrorDomain code:9999 userInfo:dict];
+#if !TARGET_OS_IPHONE
 		[[NSApplication sharedApplication] presentError:error];
+#endif
 		return nil;
 	}
 	_managedObjectContext = [[NSManagedObjectContext alloc] init];
