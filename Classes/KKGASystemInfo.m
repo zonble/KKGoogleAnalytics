@@ -14,6 +14,7 @@ NSString *KKUserAgentString(void) {
 		}
 		else {
 			SInt32 major, minor, bugfix;
+#if !TARGET_OS_IPHONE
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 			Gestalt(gestaltSystemVersionMajor, &major);
@@ -21,6 +22,7 @@ NSString *KKUserAgentString(void) {
 			Gestalt(gestaltSystemVersionBugFix, &bugfix);
 			OSVersion = [NSString stringWithFormat:@"%d_%d_%d", major, minor, bugfix];
 #pragma clang diagnostic pop
+#endif
 		}
 
 		userAgent = [NSString stringWithFormat:@"%@/%@ (Macintosh; %@ Mac OS X %@; %@)",
@@ -101,12 +103,18 @@ NSString *KKUserAgentString(void) {
 
 + (NSString *)screenResolutionString
 {
+#if !TARGET_OS_IPHONE
 	NSScreen *screen = [NSScreen mainScreen];
 	return [NSString stringWithFormat:@"%ldx%ld", (long)screen.frame.size.width, (long)screen.frame.size.height];
+    #else
+    UIScreen *screen = [UIScreen mainScreen];
+    return [NSString stringWithFormat:@"%ldx%ld", (long)screen.bounds.size.width, (long)screen.bounds.size.height];
+    #endif
 }
 
 + (NSString *)screenDepthString
 {
+#if !TARGET_OS_IPHONE
 	NSScreen *screen = [NSScreen mainScreen];
 	switch (screen.depth) {
 		case NSWindowDepthTwentyfourBitRGB:
@@ -118,7 +126,10 @@ NSString *KKUserAgentString(void) {
 		default:
 			break;
 	}
-	return nil;
+    return nil;
+#else
+    return @"24-bits";
+#endif
 }
 
 @end
