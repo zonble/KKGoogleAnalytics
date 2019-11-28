@@ -106,10 +106,10 @@ NSString *KKUserAgentString(void) {
 #if !TARGET_OS_IPHONE
 	NSScreen *screen = [NSScreen mainScreen];
 	return [NSString stringWithFormat:@"%ldx%ld", (long)screen.frame.size.width, (long)screen.frame.size.height];
-    #else
-    UIScreen *screen = [UIScreen mainScreen];
-    return [NSString stringWithFormat:@"%ldx%ld", (long)screen.bounds.size.width, (long)screen.bounds.size.height];
-    #endif
+#else
+	UIScreen *screen = [UIScreen mainScreen];
+	return [NSString stringWithFormat:@"%ldx%ld", (long)screen.bounds.size.width, (long)screen.bounds.size.height];
+#endif
 }
 
 + (NSString *)screenDepthString
@@ -126,9 +126,9 @@ NSString *KKUserAgentString(void) {
 		default:
 			break;
 	}
-    return nil;
+	return nil;
 #else
-    return @"24-bits";
+	return @"24-bits";
 #endif
 }
 
