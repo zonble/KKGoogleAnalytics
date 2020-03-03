@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.author = {"zonble" => "zonble@gmail.com"}
   s.social_media_url = "http://twitter.com/zonble"
 
-  s.platform = :osx
   s.osx.deployment_target = "10.10"
+  s.ios.deployment_target = "3.0"
 
   s.source = {:git => "https://github.com/zonble/KKGoogleAnalytics.git", :tag => "0.0.3"}
 
@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.exclude_files = "Classes/Exclude"
   s.resource = "Resources/GoogleAnalytics.xcdatamodeld"
   s.requires_arc = true
+  s.frameworks = ['CoreData']
 end
