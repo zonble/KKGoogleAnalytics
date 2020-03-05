@@ -1,12 +1,13 @@
 KKGoogleAnalytics
 =================
 
-Yet another Google Analytics library for Mac and iOS (includes Mac Catalyst).
+Yet another Google Analytics library for macOS (including Mac Catalyst), and
+iOS.
 
-Google has official Google Analytics SDKs for mobile platforms such as
-iOS and Adnroid, but Google does not provide such a SDK for Mac OS X,
-thus, many developers create their own Google Analytics
-library. However, existing open-source library does not meet our need.
+Google has official Google Analytics SDKs for mobile platforms such as iOS and
+Android, but Google does not provide such a SDK for Mac OS X, thus, many
+developers create their own Google Analytics library. However, existing
+open-source library does not meet our need.
 
 Some of them send payloads to Google's measuring API point directly
 but not to put them in an upload queue. It may cause creating too many
@@ -28,7 +29,11 @@ hardware model information.
 
 ## Requirements
 
-KKGoogleAnalytics supports Mac OS X 10.7 and above / iOS 3.0 and above / Mac Catalyst 13.0 and above.
+KKGoogleAnalytics supports
+
+* macOS 10.10 and above
+* iOS 8.0 and above
+* Mac Catalyst 13.0 and above.
 
 ## Installation
 

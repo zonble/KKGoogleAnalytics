@@ -4,7 +4,9 @@
 
 KKGoogleAnalytics *_Nonnull KKGAI(void);
 
-/** The top-level class. */
+/**
+ The top-level class.
+*/
 @interface KKGoogleAnalytics : NSObject
 
 /**
@@ -14,7 +16,7 @@ KKGoogleAnalytics *_Nonnull KKGAI(void);
 
 /**
  Start the timer to do dispatching.
- */
+*/
 - (void)startDispatching;
 
 /**
@@ -36,9 +38,13 @@ KKGoogleAnalytics *_Nonnull KKGAI(void);
 - (BOOL)dispatch;
 
 /**
-  The tracking ID to use for this tracker.  It should be of the form
+ The tracking ID to use for this tracker.  It should be of the form
  `UA-xxxxx-y`.
 */
 @property (strong, nonatomic, nullable) NSString *trackingID;
+
+/**
+ The user ID for the tracker.
+*/
 @property (strong, nonatomic, nullable) NSString *userID;
 @end

@@ -83,7 +83,7 @@ extern NSString * _Nonnull const kKKGAIExperimentVariant;
 
 /**
  This class provides several fields and methods useful as wire format parameter
- names.  The methods are used for wire format parameter names that are indexed.
+ names. The methods are used for wire format parameter names that are indexed.
  */
 @interface KKGAFields : NSObject
 

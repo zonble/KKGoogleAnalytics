@@ -1,2 +1,3 @@
- # platform :osx
- pod "KKGoogleAnalytics", :path => "../"
+platform :osx, "10.10"
+pod "KKGoogleAnalytics", :path => "../"
+workspace "SampleApp.xcworkspace"

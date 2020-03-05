@@ -13,7 +13,7 @@ KKGoogleAnalytics *KKGAI(void) {
 @end
 
 NS_INLINE NSString *KKEscape(NSString *inValue) {
-	CFStringRef escaped = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)inValue, NULL, CFSTR("&+"), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+	CFStringRef escaped = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef) inValue, NULL, CFSTR("&+"), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
 	return CFBridgingRelease(escaped);
 }
 
@@ -21,7 +21,7 @@ NS_INLINE NSString *KKEscape(NSString *inValue) {
 + (instancetype)stringAsWWWURLEncodedFormFromDictionary:(NSDictionary *)formDictionary
 {
 	NSMutableString *combinedDataString = [NSMutableString string];
-	NSArray *allKeys = [formDictionary allKeys];
+	NSArray *allKeys = formDictionary.allKeys;
 	for (id key in allKeys) {
 		id value = formDictionary[key];
 		if ([value respondsToSelector:@selector(stringValue)]) {
@@ -115,7 +115,7 @@ static NSString *const KKGoogleAnalyticsErrorDomain = @"KKGoogleAnalyticsErrorDo
 
 - (BOOL)dispatch
 {
-	if ([self.operationQueue operationCount]) {
+	if (self.operationQueue.operationCount <= 0) {
 		return NO;
 	}
 
